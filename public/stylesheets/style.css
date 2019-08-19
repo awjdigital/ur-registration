@@ -1,0 +1,407 @@
+@media (min-width: 48.0625em) {
+  .v2 .register-themes {
+    display: grid;
+    grid-column-gap: 1.5em;
+    grid-row-gap: 1.5em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(8em, auto);
+    padding-bottom: 0;
+
+    padding-inline-start: 0px;
+    -moz-padding-inline-start: 0px;
+    -webkit-padding-inline-start: 0px;
+    -khtml-padding-inline-start: 0px;
+    -o-padding-inline-start: 0px;
+  }
+}
+
+.hide-mobile {
+  display: none;
+}
+
+@media (min-width: 48.0625em) {
+  .hide-mobile {
+    display: block;
+  }
+
+}
+.gc-hero {
+  background-color: govuk-colour("dark-grey");
+}
+
+
+.gc-hero--image-description .gc-hero-content {
+  background-color: govuk-colour("orange");
+}
+
+
+.gc-section {
+  display: block;
+  padding: 40px 0px 25px 0px;
+  background: #fff;
+}
+
+.gc-section:first-of-type {
+  display: block;
+  padding: 0px 0px 25px 0px;
+  background: #fff;
+}
+
+.gc-section--alt {
+  background: #f0f4f5;
+}
+
+.gc-grid-row:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+
+
+/* ==========================================================================
+   COMPONENTS / #PROMO
+   ========================================================================== */
+/**
+ * 1. Extra margin is added to compensate for the box-shadow.
+ * 2. Box shadow size is set within settings/_globals.scss.
+ * 3. Makes the <a> fill the height of it's parent container.
+ * 4. Is needed for the :active top positioning.
+ * 5. Removes default <a> text underline from all elements.
+ * 6. Adds text underline to promo heading.
+ * 7. Creates the 'pressed down' effect when clicked.
+ * 8. Border is used to create a divider between the white content
+ *    box and an image.
+ */
+.gc-promo {
+  margin-bottom: 36px;
+  /* [1] */
+  width: 100%;
+}
+
+.gc-promo__link-wrapper {
+  gc-promo__link-wrapper
+  border: 1px solid transparent;
+  box-shadow: 0 4px 0 0 #d8dde0;
+  /* [2] */
+  display: block;
+  height: 100%;
+  /* [3] */
+  position: relative;
+  /* [4] */
+  text-decoration: none;
+  /* [5] */
+}
+
+.gc-promo__link-wrapper:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px #ffb81C;
+}
+
+.gc-promo__link-wrapper:focus .gc-promo__heading {
+  text-decoration: underline;
+  /* [6] */
+}
+
+.gc-promo__link-wrapper:focus .gc-promo__heading,
+.gc-promo__link-wrapper:focus .gc-promo__description {
+  color: #212b32;
+}
+
+.gc-promo__link-wrapper:hover {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px #ffb81C;
+  color: #005eb8;
+}
+
+.gc-promo__link-wrapper:active {
+  background-color: #f0f4f5;
+  /* [7] */
+  box-shadow: 0 0 0 2px #ffbf33;
+  top: 4px;
+  /* [7] */
+}
+
+.gc-promo__link-wrapper:hover .gc-promo__heading,
+.gc-promo__link-wrapper:active .gc-promo__heading {
+  text-decoration: none;
+}
+
+.gc-promo__img {
+  border-bottom: 1px solid #f0f4f5;
+  /* [8] */
+  display: block;
+  width: 100%;
+}
+
+@media print {
+  .gc-promo__img {
+    display: none;
+  }
+}
+
+.gc-promo__heading {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  text-decoration: underline;
+}
+
+@media (min-width: 40.0625em) {
+  .gc-promo__heading {
+    font-size: 20px;
+    line-height: 1.33333;
+  }
+}
+
+@media print {
+  .gc-promo__heading {
+    font-size: 18pt;
+    line-height: 1.15;
+  }
+}
+
+.gc-promo__content {
+  padding: 24px;
+}
+
+.gc-promo__content>*:first-child {
+  margin-top: 0;
+}
+
+.gc-promo__content>*:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 40.0625em) {
+  .gc-promo__content {
+    padding: 32px;
+  }
+}
+
+.gc-promo__description {
+  font-size: 16px;
+}
+
+/* Promo size variant
+     ========================================================================== */
+/**
+   * Promo small reduces the size of the text heading and description.
+   */
+.gc-promo--small .gc-promo__heading {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 40.0625em) {
+  .gc-promo--small .gc-promo__heading {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.47368;
+  }
+}
+
+@media print {
+  .gc-promo--small .gc-promo__heading {
+    font-size: 14pt;
+    line-height: 1.15;
+  }
+}
+
+.gc-promo--small .gc-promo__description {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+}
+
+@media (min-width: 40.0625em) {
+  .gc-promo--small .gc-promo__description {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+@media print {
+  .gc-promo--small .gc-promo__description {
+    font-size: 14pt;
+    line-height: 1.2;
+  }
+}
+
+/* Promo group
+     ========================================================================== */
+/**
+   * Promo group allows you to have a row of promos.
+   *
+   * Flexbox is used to make each promo in a row the same height.
+   */
+.gc-promo-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 48.0525em) {
+  .gc-promo-group {
+    margin-bottom: 28px;
+  }
+}
+
+.gc-promo-group__item {
+  display: flex;
+}
+
+@media (max-width: 48.0525em) {
+  .gc-promo-group__item {
+    flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 48.0525em) {
+  .gc-promo-group__item {
+    margin-bottom: 28px;
+  }
+
+  .gc-promo-group__item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.gc-promo-group__item .gc-promo {
+  margin-bottom: 0;
+}
+
+
+
+/* ==========================================================================
+   COMPONENTS/ #ACTION-LINK
+   ========================================================================== */
+/**
+ * 1. Display is inline-block so the top and bottom margins/paddings are
+ *    respected.
+ * 2. 'Random number' is used to properly have sufficient space between icon
+ *    and text.
+ * 3. Position is relative so the arrow icon can display absolute.
+ * 4. Text decoration none used to override default <a> styling.
+ * 5. Box shadow 8px used instead of the default 4px.
+ * 6. Text decoration underline used to override default <a> styling.
+ */
+.gc-action-link {
+  margin-bottom: 32px;
+}
+
+@media (min-width: 40.0625em) {
+  .gc-action-link {
+    margin-bottom: 40px;
+  }
+}
+
+.gc-action-link__link {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1.125rem;
+  line-height: 1.55556;
+  display: inline-block;
+  /* [1] */
+  font-weight: 600;
+  padding-left: 42px;
+  /* [2] */
+  position: relative;
+  /* [3] */
+  text-decoration: none;
+  /* [4] */
+}
+
+@media (min-width: 40.0625em) {
+  .gc-action-link__link {
+    font-size: 16px;
+    font-size: 1.175rem;
+    line-height: 1.45455;
+  }
+}
+
+@media print {
+  .gc-action-link__link {
+    font-size: 18pt;
+    line-height: 1.15;
+  }
+}
+
+@media (max-width: 40.0525em) {
+  .gc-action-link__link {
+    padding-left: 36px;
+    /* [2] */
+  }
+}
+
+@media print {
+  .gc-action-link__link {
+    color: #212b32;
+  }
+
+  .gc-action-link__link:visited {
+    color: #212b32;
+  }
+}
+
+.gc-action-link__link:focus {
+  box-shadow: 0 0 0 1px #ffb81C;
+  /* [5] */
+}
+
+.gc-action-link__link:focus .gc-action-link__text {
+  text-decoration: underline;
+}
+
+.gc-action-link__link:hover {
+  box-shadow: 0 0 0 1px #ffcd60;
+  /* [5] */
+}
+
+.gc-action-link__link:hover .gc-action-link__text {
+  text-decoration: underline;
+  /* [6] */
+}
+
+.gc-action-link__link .gc-icon__arrow-right-circle {
+  fill: #157b95;
+  height: 34px;
+  left: -3px;
+  position: absolute;
+  top: -4px;
+  width: 34px;
+}
+
+@media print {
+  .gc-action-link__link .gc-icon__arrow-right-circle {
+    color: #212b32;
+    fill: #212b32;
+  }
+
+  .gc-action-link__link .gc-icon__arrow-right-circle:active,
+  .gc-action-link__link .gc-icon__arrow-right-circle:focus,
+  .gc-action-link__link .gc-icon__arrow-right-circle:visited {
+    color: #212b32;
+  }
+}
+
+@media (max-width: 40.0525em) {
+  .gc-action-link__link .gc-icon__arrow-right-circle {
+    height: 34px;
+    margin-bottom: -9px;
+    top: -3px;
+    width: 34px;
+  }
+}
+
+
+.app-promo--grey {
+  background: #f0f4f5;
+}
+
+.gc-section--alt .gc-promo__link-wrapper{
+  background: #ffffff;
+}
