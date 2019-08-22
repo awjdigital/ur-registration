@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Register
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+
+
+
+{% endblock %}
+{% block beforeContent %}<a href="/register-gambling" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<section class="gc-section">
+
+  <div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% if err %}
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+          data-module="govuk-error-summary">
+          <h2 class="govuk-error-summary__title" id="error-summary-title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              {% if method %}
+              <li>
+                <a href="#first-name">Select an option</a>
+              </li>
+              {% endif %}
+
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+
+
+        <form method="POST">
+
+          <div class="govuk-form-group  {% if method %}govuk-form-group--error{% endif %}">
+            <fieldset class="govuk-fieldset" aria-describedby="method-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  How are you willing to take part in user research?
+                </h1>
+              </legend>
+              {% if method %}
+              <span id="changed-name-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Select an option
+              </span>
+              {% endif %}
+              <span id="method-hint" class="govuk-hint">
+                Select all that apply.
+              </span>
+              <div class="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="method" name="method" type="checkbox" value="Remotely and feed back by email"
+                    {{ checked("method", "Remotely and feed back by email") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="method">
+                    Remotely and feed back by email
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="method-2" name="method" type="checkbox" value="Remotely and feed back by email"
+                  {{ checked("method", "Remotely and feed back by telephone") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="method-2">
+                    Remotely and feed back by telephone
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="method-3" name="method" type="checkbox" value="Remotely and feed back by skype or hangouts"
+                  {{ checked("method", "Remotely and feed back by skype or hangouts") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="method-3">
+                    Remotely and feed back by skype or hangouts
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="method-4" name="method" type="checkbox" value="At our offices in Birmingham"
+                  {{ checked("method", "At our offices in Birmingham") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="method-4">
+                    At our offices in Birmingham
+                  </label>
+                </div>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="method-5" name="method" type="checkbox" value="Have us come to you"
+                  {{ checked("method", "Have us come to you") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="method-5">
+                    Have us come to you
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+
+
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}

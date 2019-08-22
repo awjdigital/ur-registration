@@ -72,6 +72,25 @@ Register
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              Method
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {% for item in methodlist %}
+              {{item}}
+              {% if not loop.last %}
+              <br>
+              {% endif %}
+              {% endfor %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/register-method">
+                Change<span class="govuk-visually-hidden"> method of participation</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
               Contact details
             </dt>
             <dd class="govuk-summary-list__value">
@@ -85,22 +104,61 @@ Register
               </a>
             </dd>
           </div>
-
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Source
+              </dt>
+              <dd class="govuk-summary-list__value">
+  
+                {% for item in sourceList %}
+                {{item}}
+  
+                {% if item === 'Other' %}
+                   - {{data['source-other']}}
+                {% endif %}
+  
+                {% if not loop.last %}
+                <br>
+                {% endif %}
+                {% endfor %}
+  
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/register-optional">
+                  Change<span class="govuk-visually-hidden"> disability</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Location
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['country']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="/register-gambling">
+                    Change<span class="govuk-visually-hidden"> are your licensed?</span>
+                  </a>
+                </dd>
+              </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Disability
+              Equipment
             </dt>
             <dd class="govuk-summary-list__value">
 
-              {% if data['disabled'] === undefined %}
-              Skipped
-              {% else %}
-              {{data['disabled']}}
-              {% if data['disabled'] === 'Yes' %}
-              <br />{{data['more-detail']}}
-              {% endif %}
+              {% for item in equipmentList %}
+              {{item}}
+
+              {% if item === 'Other' %}
+                 - {{data['equipment-other']}}
               {% endif %}
 
+              {% if not loop.last %}
+              <br>
+              {% endif %}
+              {% endfor %}
 
             </dd>
             <dd class="govuk-summary-list__actions">

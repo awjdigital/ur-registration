@@ -24,6 +24,7 @@ var NotifyClient = require('notifications-node-client').NotifyClient,
 // Add your routes here - above the module.exports line
 
 router.get('/', (req, res) => {
+    req.session.cya = 'n';
     req.session.data = {};
     res.render('index')
 })
@@ -46,6 +47,42 @@ router.get('/register-optional', (req, res) => {
 
 router.get('/register-contact', (req, res) => {
     res.render('register-contact')
+})
+
+router.get('/register-source', (req, res) => {
+    res.render('register-source')
+})
+router.get('/register-location', (req, res) => {
+    res.render('register-location')
+})
+
+router.get('/register-method', (req, res) => {
+    res.render('register-method')
+})
+
+router.get('/register-check', (req, res) => { 
+    req.session.cya = 'y';
+
+    var method = req.session.data['method'].toString();
+    var methodlist = method.split(',');
+
+    var equipment = req.session.data['equipment'].toString();
+    var equipmentList = equipment.split(',');
+
+    var source = req.session.data['source'].toString();
+    var sourceList = source.split(',');
+
+    res.render('register-check',{
+        methodlist,
+        equipmentList,
+        sourceList
+    })
+})
+
+router.get('/register-complete', (req, res) => {
+
+
+    res.render('register-complete')
 })
 
 router.post('/register', (req, res) => {
@@ -112,8 +149,6 @@ router.post('/register-profile', (req, res) => {
     }
 })
 
-
-
 router.post('/register-gambling', (req, res) => {
     err = false;
     var licensed = false;
@@ -125,7 +160,6 @@ router.post('/register-gambling', (req, res) => {
     }
 
 
-
     if (req.session.cya === 'y') {
         res.redirect('register-check')
     } else {
@@ -133,6 +167,32 @@ router.post('/register-gambling', (req, res) => {
             res.render('register-gambling', {
                 err,
                 licensed
+            })
+        } else {
+            res.redirect('register-method')
+        }
+    }
+})
+
+router.post('/register-method', (req, res) => {
+    err = false;
+    var method = false;
+
+
+    if (req.body['method'] === undefined) {
+        err = true;
+        method = true;
+    }
+
+
+
+    if (req.session.cya === 'y') {
+        res.redirect('register-check')
+    } else {
+        if (err) {
+            res.render('register-method', {
+                err,
+                method
             })
         } else {
             res.redirect('register-contact')
@@ -168,6 +228,60 @@ router.post('/register-contact', (req, res) => {
             })
         } else {
 
+            res.redirect('register-source')
+        }
+    }
+})
+
+router.post('/register-source', (req, res) => {
+
+    err = false;
+    var source = false;
+
+
+    if (req.body['source'] === undefined) {
+        err = true;
+        source = true;
+    }
+   
+
+
+    if (req.session.cya === 'y') {
+        res.redirect('register-check')
+    } else {
+        if (err) {
+            res.render('register-source', {
+                err,
+                source
+            })
+        } else {
+            res.redirect('register-location')
+        }
+    }
+})
+
+router.post('/register-location', (req, res) => {
+
+    err = false;
+    var location = false;
+
+
+    if (req.body['country'] === "") {
+        err = true;
+        location = true;
+    }
+   
+
+
+    if (req.session.cya === 'y') {
+        res.redirect('register-check')
+    } else {
+        if (err) {
+            res.render('register-location', {
+                err,
+                location
+            })
+        } else {
             res.redirect('register-optional')
         }
     }
@@ -175,13 +289,30 @@ router.post('/register-contact', (req, res) => {
 
 router.post('/register-optional', (req, res) => {
 
-    res.redirect('register-check')
-})
+    err = false;
+    var equipment = false;
 
-router.get('/register-check', (req, res) => {
-    req.session.cya = 'y';
 
-    res.render('register-check')
+    if (req.body['equipment'] === undefined) {
+        err = true;
+        equipment = true;
+    }
+
+    
+
+
+    if (req.session.cya === 'y') {
+        res.redirect('register-check')
+    } else {
+        if (err) {
+            res.render('register-optional', {
+                err,
+                equipment
+            })
+        } else {
+            res.redirect('register-check')
+        }
+    }
 })
 
 router.post('/register-check', (req, res) => {
@@ -193,9 +324,12 @@ router.post('/register-check', (req, res) => {
     var licensed = req.session.data['licensed'];
     var email = req.session.data['email'];
     var telephone = req.session.data['telephone-number'];
-    var disabled = req.session.data['disabled'];
-    var moredetail = req.session.data['more-detail'];
-    var method = req.session.data['method'];
+    var assistive = req.session.data['equipment'];
+    var assistiveOther = req.session.data['equipment-other'];
+    var method = req.session.data['method'];    
+    var source = req.session.data['source'];    
+    var location = req.session.data['country'];  
+    var sourceOther = req.session.data['source-other'];  
 
     if(describe === 'I am a member of the public'){
         describe = 'Public'
@@ -221,14 +355,7 @@ router.post('/register-check', (req, res) => {
         describe = 'Education'
     }
 
-    if (disabled === undefined) {
-        disabled = "skipped";
-        moredetail = "skipped";
-    }
-
-    if (disabled === 'No') {
-        moredetail = "N/A";
-    }
+ 
 
     // Save to DB
 
@@ -240,7 +367,7 @@ router.post('/register-check', (req, res) => {
     const addParticipant = require('../data/addParticipant.js');
     
 
-    addParticipant(firstname,lastname,email, telephone, method, disabled, moredetail, describe, licensed, date)
+    addParticipant(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,date)
 
     // Send notification
     notify
@@ -252,8 +379,9 @@ router.post('/register-check', (req, res) => {
                 'licensed': licensed,
                 'email': email,
                 'telephone-number': telephone,
-                'disabled': disabled,
-                'more-detail': moredetail
+                'disabled': assistive,
+                'more-detail': assistiveOther
+                
             }
         })
         .then(response => console.log("Sent"))
@@ -272,10 +400,6 @@ router.post('/register-check', (req, res) => {
     res.redirect('register-complete')
 })
 
-router.get('/register-complete', (req, res) => {
-    req.session.data = {}
 
-    res.render('register-complete')
-})
 
 module.exports = router

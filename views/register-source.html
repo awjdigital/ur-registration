@@ -1,0 +1,163 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Register
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+
+
+
+{% endblock %}
+{% block beforeContent %}<a href="/register-contact" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<section class="gc-section">
+
+  <div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% if err %}
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+          data-module="govuk-error-summary">
+          <h2 class="govuk-error-summary__title" id="error-summary-title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">            
+              <li>
+                <a href="#source-conditional-hint">Select an option</a>
+              </li>           
+             
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+
+     
+        <form method="POST">
+
+          <div class="govuk-form-group {% if err %}govuk-form-group--error{% endif %}" >
+            <fieldset class="govuk-fieldset" aria-describedby="source-conditional-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  How did you find out about the research programme?
+                </h1>
+              </legend>
+              <span id="source-conditional-hint" class="govuk-hint">
+                Select all options that are relevant to you.
+              </span>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="source-conditional" name="source" type="checkbox"
+                    value="Gambling Commission conference or event" data-aria-controls="conditional-source-conditional"
+                    {{ checked("source", "Gambling Commission conference or event") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="source-conditional">
+                    Gambling Commission conference or event
+                  </label>
+                </div>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="source-conditional-2" name="source" type="checkbox"
+                    value="Gambling-related industry event" data-aria-controls="conditional-source-conditional-2"
+                    {{ checked("source", "Gambling-related industry event") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="source-conditional-2">
+                    Gambling-related industry event
+                  </label>
+                </div>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="source-conditional-3" name="source" type="checkbox"
+                    value="eBulletin" data-aria-controls="conditional-source-conditional-3"
+                    {{ checked("source", "eBulletin") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="source-conditional-3">
+                    eBulletin
+                  </label>
+                </div>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="source-conditional-4" name="source" type="checkbox"
+                    value="Insight engagement" data-aria-controls="conditional-source-conditional-4"
+                    {{ checked("source", "Insight engagement") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="source-conditional-4">
+                    Insight engagement
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="source-conditional-6" name="source" type="checkbox"
+                    value="Recommended by a colleague" data-aria-controls="conditional-source-conditional-6"
+                    {{ checked("source", "Recommended by a colleague") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="source-conditional-6">
+                    Recommended by a colleague </label>
+                </div>
+               
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="source-conditional-8" name="source" type="checkbox"
+                    value="Search engine" data-aria-controls="conditional-source-conditional-8"
+                    {{ checked("source", "Search engine") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="source-conditional-8">
+                    Search engine </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="source-conditional-9" name="source" type="checkbox"
+                    value="Social media" data-aria-controls="conditional-source-conditional-9"
+                    {{ checked("source", "Social media") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="source-conditional-9">
+                    Social media</label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="source-conditional-7" name="source" type="checkbox"
+                    value="Survey" data-aria-controls="conditional-source-conditional-7"
+                    {{ checked("source", "Survey") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="source-conditional-7">
+                    Survey </label>
+                </div>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="source-conditional-5" name="source" type="checkbox"
+                    value="Other" data-aria-controls="conditional-source-conditional-5"
+                    {{ checked("source", "Other") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="source-conditional-5">
+                    Other
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
+                  id="conditional-source-conditional-5">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="source-other">
+                      Details
+                    </label>
+                    <input class="govuk-input" id="source-other" name="source-other" type="text"
+                      value="{{data['source-other']}}">
+                  </div>
+
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+
+
+
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}

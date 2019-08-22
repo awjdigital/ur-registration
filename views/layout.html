@@ -33,6 +33,8 @@
   <![endif]-->
 
   <link href="/public/stylesheets/styles.css" rel="stylesheet" />
+  
+  <link href="/public/accessible-autocomplete.min.css" rel="stylesheet" />
 
     <meta name="author" content="Gambling Commission Digital Team" />
     <meta name="copyright" content="Gambling Commission" />
@@ -142,6 +144,16 @@
 <script src="https://gc-frontend-cdn.herokuapp.com/public/javascripts/jquery-1.11.3.js"></script>
 <script src="https://gc-frontend-cdn.herokuapp.com/public/javascripts/all.js"></script>
 <script src="https://gc-frontend-cdn.herokuapp.com/public/javascripts/application.js"></script>
+
+<script src="/public/accessible-autocomplete.min.js"></script>
+
+<script type="text/javascript">
+    accessibleAutocomplete.enhanceSelectElement(
+      {
+      selectElement: document.querySelector('.autocomplete')
+      
+    })
+  </script>
 </body>
 
 </html>
