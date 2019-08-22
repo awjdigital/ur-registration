@@ -54,6 +54,16 @@ Register
               <span id="source-conditional-hint" class="govuk-hint">
                 Select all options that are relevant to you.
               </span>
+
+              
+              <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="source-conditional-3" name="source" type="checkbox"
+                    value="eBulletin" data-aria-controls="conditional-source-conditional-3"
+                    {{ checked("source", "eBulletin") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="source-conditional-3">
+                    eBulletin
+                  </label>
+                </div>
               <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="source-conditional" name="source" type="checkbox"
@@ -73,14 +83,6 @@ Register
                   </label>
                 </div>
 
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="source-conditional-3" name="source" type="checkbox"
-                    value="eBulletin" data-aria-controls="conditional-source-conditional-3"
-                    {{ checked("source", "eBulletin") }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="source-conditional-3">
-                    eBulletin
-                  </label>
-                </div>
 
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="source-conditional-4" name="source" type="checkbox"
