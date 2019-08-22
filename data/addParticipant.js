@@ -4,12 +4,12 @@ const sql = require('mssql');
 
 
 
-async function addParticipant(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,date) {
+async function addParticipant(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,describeOther,date) {
     let sqlResult = {};
     sql.close()
     await sql.connect(config)
 
-    let q = add(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,date); 
+    let q = add(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,describeOther,date); 
 
     sqlResult['participant'] = await q;
 
@@ -17,10 +17,10 @@ async function addParticipant(firstname,lastname,email, telephone, method, assis
     return sqlResult;
 }
 
-async function add(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther, date ) {
+async function add(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,describeOther, date ) {
     try {       
 
-        return await  sql.query("INSERT INTO Participants (FirstName, LastName, Email, Phone, Method, Assistive, AssistiveOther, UserType, Licensed, Location, Source, SourceOther, Created) VALUES ('" +
+        return await  sql.query("INSERT INTO Participants (FirstName, LastName, Email, Phone, Method, Assistive, AssistiveOther, UserType, UserTypeOther, Licensed, Location, Source, SourceOther, Created) VALUES ('" +
         firstname + "','" +
         lastname + "','" +
         email + "','" +
@@ -29,6 +29,7 @@ async function add(firstname,lastname,email, telephone, method, assistive, assis
         assistive + "','" +
         assistiveOther + "','" +
         describe + "','" +
+        describeOther + "','" +
         licensed + "','" +
         location + "','" +
         source + "','" +

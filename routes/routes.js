@@ -80,7 +80,8 @@ router.get('/register-check', (req, res) => {
 })
 
 router.get('/register-complete', (req, res) => {
-
+    req.session.cya = 'n';
+    req.session.data = {};
 
     res.render('register-complete')
 })
@@ -321,6 +322,7 @@ router.post('/register-check', (req, res) => {
     var firstname = req.session.data['first-name'];
     var lastname = req.session.data['last-name'];
     var describe = req.session.data['describe'];
+    var describeOther = req.session.data['describe-other']; 
     var licensed = req.session.data['licensed'];
     var email = req.session.data['email'];
     var telephone = req.session.data['telephone-number'];
@@ -367,7 +369,7 @@ router.post('/register-check', (req, res) => {
     const addParticipant = require('../data/addParticipant.js');
     
 
-    addParticipant(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,date)
+    addParticipant(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther, describeOther, date)
 
     // Send notification
     notify

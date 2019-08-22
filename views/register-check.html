@@ -49,6 +49,10 @@ Register
             </dt>
             <dd class="govuk-summary-list__value">
               {{data['describe']}}
+
+              {% if data['describe'] === 'Other' %}
+              - {{data['describe-other']}}
+           {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/register-profile">

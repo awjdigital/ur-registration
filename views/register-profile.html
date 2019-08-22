@@ -62,7 +62,7 @@ Register
                                 <span class="govuk-visually-hidden">Error:</span> Select an option
                             </span>
                             {% endif %}
-                            <div class="govuk-radios">
+                            <div class="govuk-radios  govuk-radios--conditional" data-module="govuk-radios">
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="describe-7" name="describe" type="radio"
                                         value="I am a member of the public" {{ checked("describe", "I am a member of the public") }}>
@@ -107,8 +107,27 @@ Register
                                     </label>
                                 </div>
 
+                                <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="describe-conditional-5" name="describe" type="radio"
+                                          value="Other" data-aria-controls="conditional-describe-conditional-5"
+                                          {{ checked("describe", "Other") }}>
+                                        <label class="govuk-label govuk-radios__label" for="describe-conditional-5">
+                                          Other
+                                        </label>
+                                      </div>
+                                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                                        id="conditional-describe-conditional-5">
+                                        <div class="govuk-form-group">
+                                          <label class="govuk-label" for="describe-other">
+                                            Details
+                                          </label>
+                                          <input class="govuk-input" id="describe-other" name="describe-other" type="text"
+                                            value="{{data['describe-other']}}">
+                                        </div>
+                      
+                                      </div>
 
-
+                                    
                         </fieldset>
                     </div>
 
