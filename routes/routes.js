@@ -389,7 +389,7 @@ router.post('/register-check', (req, res) => {
         .then(response => console.log("Sent"))
         .catch(err => console.error("errored"))
 
-if(process.env.sendemailtouser){
+if(process.env.sendemailtouser === 'Yes'){
 
     notify
         .sendEmail(process.env.useremail, email, {
