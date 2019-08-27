@@ -335,29 +335,36 @@ router.post('/register-check', (req, res) => {
 
     if(describe === 'I am a member of the public'){
         describe = 'Public'
+        describeOther = ''
     }
 
     if(describe === 'I work in the gambling industry'){
         describe = 'Gambling industry'
+        describeOther = ''
     }
 
     if(describe === 'I work for a charity'){
         describe = 'Charity sector'
+        describeOther = ''
     }
 
     if(describe === 'I work in the media/news industry'){
         describe = 'Media'
+        describeOther = ''
     }
     
     if(describe === 'I work in the medical profession'){
         describe = 'Healthcare'
+        describeOther = ''
     }
 
     if(describe === 'I work in the education sector'){
         describe = 'Education'
+        describeOther = ''
     }
 
- 
+
+
 
     // Save to DB
 

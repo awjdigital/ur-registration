@@ -65,14 +65,16 @@ Register
                             <div class="govuk-radios  govuk-radios--conditional" data-module="govuk-radios">
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="describe-7" name="describe" type="radio"
-                                        value="I am a member of the public" {{ checked("describe", "I am a member of the public") }}>
+                                        value="I am a member of the public"
+                                        {{ checked("describe", "I am a member of the public") }}>
                                     <label class="govuk-label govuk-radios__label" for="describe-7">
                                         I am a member of the public
                                     </label>
                                 </div>
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="describe-2" name="describe" type="radio"
-                                        value="I work in the gambling industry" {{ checked("describe", "I work in the gambling industry") }}>
+                                        value="I work in the gambling industry"
+                                        {{ checked("describe", "I work in the gambling industry") }}>
                                     <label class="govuk-label govuk-radios__label" for="describe-2">
                                         I work in the gambling industry
                                     </label>
@@ -86,14 +88,16 @@ Register
                                 </div>
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="describe-4" name="describe" type="radio"
-                                        value="I work in the media/news industry"  {{ checked("describe", "I work in the media/news industry") }}>
+                                        value="I work in the media/news industry"
+                                        {{ checked("describe", "I work in the media/news industry") }}>
                                     <label class="govuk-label govuk-radios__label" for="describe-4">
                                         I work in the media/news industry
                                     </label>
                                 </div>
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="describe-5" name="describe" type="radio"
-                                        value="I work in the medical profession" {{ checked("describe", "I work in the medical profession") }}>
+                                        value="I work in the medical profession"
+                                        {{ checked("describe", "I work in the medical profession") }}>
                                     <label class="govuk-label govuk-radios__label" for="describe-5">
                                         I work in the medical profession
                                     </label>
@@ -101,33 +105,35 @@ Register
 
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="describe-6" name="describe" type="radio"
-                                        value="I work in the education sector" {{ checked("describe", "I work in the education sector") }}>
+                                        value="I work in the education sector"
+                                        {{ checked("describe", "I work in the education sector") }}>
                                     <label class="govuk-label govuk-radios__label" for="describe-6">
                                         I work in the education sector
                                     </label>
                                 </div>
 
                                 <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="describe-conditional-5" name="describe" type="radio"
-                                          value="Other" data-aria-controls="conditional-describe-conditional-5"
-                                          {{ checked("describe", "Other") }}>
-                                        <label class="govuk-label govuk-radios__label" for="describe-conditional-5">
-                                          Other
-                                        </label>
-                                      </div>
-                                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
-                                        id="conditional-describe-conditional-5">
-                                        <div class="govuk-form-group">
-                                          <label class="govuk-label" for="describe-other">
+                                    <input class="govuk-radios__input" id="describe-conditional-5" name="describe"
+                                        type="radio" value="Other"
+                                        data-aria-controls="conditional-describe-conditional-5"
+                                        {{ checked("describe", "Other") }}>
+                                    <label class="govuk-label govuk-radios__label" for="describe-conditional-5">
+                                        Other
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                                    id="conditional-describe-conditional-5">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label" for="describe-other">
                                             Details
-                                          </label>
-                                          <input class="govuk-input" id="describe-other" name="describe-other" type="text"
+                                        </label>
+                                        <input class="govuk-input" id="describe-other" name="describe-other" type="text"
                                             value="{{data['describe-other']}}">
-                                        </div>
-                      
-                                      </div>
+                                    </div>
 
-                                    
+                                </div>
+
+
                         </fieldset>
                     </div>
 
