@@ -434,7 +434,16 @@ router.post('/register-check', (req, res) => {
     console.log(date);
 
     const addParticipant = require('../data/addParticipant.js');
-    
+
+    firstname = firstname.replace("'", "''")
+    lastname = lastname.replace("'", "''")
+    email = email.replace("'", "")
+    telephone = telephone.replace("'", "")
+    telephone = telephone.replace(".", "")    
+    telephone = telephone.replace(",", "")
+    assistiveOther = assistiveOther.replace("'", "''")
+    sourceOther = sourceOther.replace("'", "''")
+    describeOther = describeOther.replace("'", "''")
 
     addParticipant(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther, describeOther, tech, date)
 
