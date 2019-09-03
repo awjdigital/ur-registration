@@ -29,9 +29,16 @@ router.get('/', (req, res) => {
     res.render('index')
 })
 
+router.get('/register-start', (req, res) => {
+    res.render('register-start')
+})
+
+
 router.get('/register', (req, res) => {
     res.render('register')
 })
+
+
 
 router.get('/register-profile', (req, res) => {
     res.render('register-profile')
