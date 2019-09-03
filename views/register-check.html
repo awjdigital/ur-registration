@@ -52,7 +52,7 @@ Register
 
               {% if data['describe'] === 'Other' %}
               - {{data['describe-other']}}
-           {% endif %}
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/register-profile">
@@ -109,43 +109,43 @@ Register
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Source
-              </dt>
-              <dd class="govuk-summary-list__value">
-  
-                {% for item in sourceList %}
-                {{item}}
-  
-                {% if item === 'Other' %}
-                   - {{data['source-other']}}
-                {% endif %}
-  
-                {% if not loop.last %}
-                <br>
-                {% endif %}
-                {% endfor %}
-  
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="/register-source">
-                  Change<span class="govuk-visually-hidden"> source</span>
-                </a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Location
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{data['country']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="/register-location">
-                    Change<span class="govuk-visually-hidden"> location</span>
-                  </a>
-                </dd>
-              </div>
+            <dt class="govuk-summary-list__key">
+              Source
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {% for item in sourceList %}
+              {{item}}
+
+              {% if item === 'Other' %}
+              - {{data['source-other']}}
+              {% endif %}
+
+              {% if not loop.last %}
+              <br>
+              {% endif %}
+              {% endfor %}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/register-source">
+                Change<span class="govuk-visually-hidden"> source</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Location
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['country']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/register-location">
+                Change<span class="govuk-visually-hidden"> location</span>
+              </a>
+            </dd>
+          </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Equipment
@@ -156,7 +156,7 @@ Register
               {{item}}
 
               {% if item === 'Other' %}
-                 - {{data['equipment-other']}}
+              - {{data['equipment-other']}}
               {% endif %}
 
               {% if not loop.last %}
@@ -171,15 +171,33 @@ Register
               </a>
             </dd>
           </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Ability
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['tech']}}
+
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/register-tech">
+                Change<span class="govuk-visually-hidden"> your technical ability</span>
+              </a>
+            </dd>
+          </div>
+
         </dl>
       </div>
       <div class="govuk-grid-column-two-thirds">
 
         <form method="POST">
           <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Now submit your registration</h2>
-          <p class="govuk-body">By submitting this information you are agreeing to your details being used by the Gambling Commission to contact you about user research participation.</p>
+          <p class="govuk-body">By submitting this information you are agreeing to your details being used by the
+            Gambling Commission to contact you about user research participation.</p>
 
-                  <button type="submit" class="govuk-button" data-module="govuk-button">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
             Submit registration
           </button>
 

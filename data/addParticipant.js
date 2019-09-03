@@ -4,12 +4,12 @@ const sql = require('mssql');
 
 
 
-async function addParticipant(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,describeOther,date) {
+async function addParticipant(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,describeOther,tech, date) {
     let sqlResult = {};
     sql.close()
     await sql.connect(config)
 
-    let q = add(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,describeOther,date); 
+    let q = add(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,describeOther,tech, date); 
 
     sqlResult['participant'] = await q;
 
@@ -17,10 +17,10 @@ async function addParticipant(firstname,lastname,email, telephone, method, assis
     return sqlResult;
 }
 
-async function add(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,describeOther, date ) {
+async function add(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,describeOther, tech, date ) {
     try {       
 
-        return await  sql.query("INSERT INTO Participants (FirstName, LastName, Email, Phone, Method, Assistive, AssistiveOther, UserType, UserTypeOther, Licensed, Location, Source, SourceOther, Created) VALUES ('" +
+        return await  sql.query("INSERT INTO Participants (FirstName, LastName, Email, Phone, Method, Assistive, AssistiveOther, UserType, UserTypeOther, Licensed, Location, Source, SourceOther, Tech, Created) VALUES ('" +
         firstname + "','" +
         lastname + "','" +
         email + "','" +
@@ -33,7 +33,8 @@ async function add(firstname,lastname,email, telephone, method, assistive, assis
         licensed + "','" +
         location + "','" +
         source + "','" +
-        sourceOther + "','" +
+        sourceOther + "','" +        
+        tech + "','" +
         date + "')");
 
     } catch (err) {

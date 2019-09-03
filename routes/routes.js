@@ -60,6 +60,10 @@ router.get('/register-method', (req, res) => {
     res.render('register-method')
 })
 
+router.get('/register-tech', (req, res) => {
+    res.render('register-tech')
+})
+
 router.get('/register-check', (req, res) => { 
     req.session.cya = 'y';
 
@@ -311,6 +315,61 @@ router.post('/register-optional', (req, res) => {
                 equipment
             })
         } else {
+            res.redirect('register-tech')
+        }
+    }
+})
+
+router.post('/register-location', (req, res) => {
+
+    err = false;
+    var location = false;
+
+
+    if (req.body['country'] === "") {
+        err = true;
+        location = true;
+    }
+   
+
+
+    if (req.session.cya === 'y') {
+        res.redirect('register-check')
+    } else {
+        if (err) {
+            res.render('register-location', {
+                err,
+                location
+            })
+        } else {
+            res.redirect('register-optional')
+        }
+    }
+})
+
+router.post('/register-tech', (req, res) => {
+
+    err = false;
+    var tech = false;
+
+
+    if (req.body['tech'] === undefined) {
+        err = true;
+        tech = true;
+    }
+
+    
+
+
+    if (req.session.cya === 'y') {
+        res.redirect('register-check')
+    } else {
+        if (err) {
+            res.render('register-tech', {
+                err,
+                tech
+            })
+        } else {
             res.redirect('register-check')
         }
     }
@@ -331,7 +390,8 @@ router.post('/register-check', (req, res) => {
     var method = req.session.data['method'];    
     var source = req.session.data['source'];    
     var location = req.session.data['country'];  
-    var sourceOther = req.session.data['source-other'];  
+    var sourceOther = req.session.data['source-other'];      
+    var tech = req.session.data['tech'];  
 
     if(describe === 'I am a member of the public'){
         describe = 'Public'
@@ -376,7 +436,7 @@ router.post('/register-check', (req, res) => {
     const addParticipant = require('../data/addParticipant.js');
     
 
-    addParticipant(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther, describeOther, date)
+    addParticipant(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther, describeOther, tech, date)
 
     // Send notification
     notify
