@@ -9,12 +9,16 @@ var dateFilter = require('nunjucks-date-filter');
 var markdown = require('nunjucks-markdown');
 var marked = require('marked');
 var sessionInMemory = require('express-session');
-
 var routes = require('./routes/routes');
-
 const utils = require('./utils.js')
 
-console.log(require('dotenv').config())
+const appInsights = require("applicationinsights");
+
+
+require('dotenv').config()
+
+appInsights.setup(process.env.instrumentationkey);
+appInsights.start();
 
 var app = express();
 
