@@ -17,7 +17,8 @@ CREATE TABLE [dbo].[Participants](
 	[Location] [nvarchar](500) NULL,
 	[Source] [nvarchar](500) NULL,
 	[SourceOther] [nvarchar](500) NULL,
-	[Tech] [nvarchar](500) NULL,
+	[Tech] [nvarchar](500) NULL,	
+	[Status] [nvarchar](50) NULL,
 	[Created] [datetime] NULL
 ) ON [PRIMARY]
 GO

@@ -34,7 +34,7 @@ async function add(firstname,lastname,email, telephone, method, assistive, assis
         location + "','" +
         source + "','" +
         sourceOther + "','" +        
-        tech + "','" +
+        tech + "','New','" +
         date + "')");
 
     } catch (err) {
