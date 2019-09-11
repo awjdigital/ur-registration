@@ -20,7 +20,7 @@ async function addParticipant(firstname,lastname,email, telephone, method, assis
 async function add(firstname,lastname,email, telephone, method, assistive, assistiveOther, describe, licensed, location, source, sourceOther,describeOther, tech, date ) {
     try {       
 
-        return await  sql.query("INSERT INTO Participants (FirstName, LastName, Email, Phone, Method, Assistive, AssistiveOther, UserType, UserTypeOther, Licensed, Location, Source, SourceOther, Tech, Created) VALUES ('" +
+        return await  sql.query("INSERT INTO Participants (FirstName, LastName, Email, Phone, Method, Assistive, AssistiveOther, UserType, UserTypeOther, Licensed, Location, Source, SourceOther, Tech, Status, Created) VALUES ('" +
         firstname + "','" +
         lastname + "','" +
         email + "','" +
