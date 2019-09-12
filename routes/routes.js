@@ -38,6 +38,10 @@ router.get('/register', (req, res) => {
     res.render('register')
 })
 
+router.get('/accessibility', (req, res) => {
+    res.render('accessibility')
+})
+
 
 
 router.get('/register-profile', (req, res) => {
