@@ -49,37 +49,57 @@ Register
                         <fieldset class="govuk-fieldset" aria-describedby="licensed-hint">
                             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-padding-bottom-4">
                                 <h1 class="govuk-fieldset__heading">
-                                    
-                                </h1> 
+                                    If you're in the gambling industry, whats your role?
+                                </h1>
                             </legend>
                             {% if licensed %}
                             <span id="changed-name-error" class="govuk-error-message">
                                 <span class="govuk-visually-hidden">Error:</span> Select an option
                             </span>
                             {% endif %}
-                            <div class="govuk-radios">       
+                            <div class="govuk-radios">
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="licensed-7" name="licensed" type="radio"
-                                        value="Yes - Operator licence" {{ checked("licensed", "Yes - Operator licence") }}>
+                                        value="I hold a personal management licence"
+                                        {{ checked("licensed", "I hold a personal management licence") }}>
                                     <label class="govuk-label govuk-radios__label" for="licensed-7">
-                                       Yes - Operator licence
+                                        I hold a personal management licence
                                     </label>
-                                </div>                                                          
+                                </div>
                                 <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="licensed-2" name="licensed" type="radio"
-                                            value="Yes - Personal licence"  {{ checked("licensed", "Yes - Personal licence") }}>
-                                        <label class="govuk-label govuk-radios__label" for="licensed-2">
-                                            Yes - Personal licence
-                                        </label>
-                                    </div>
+                                    <input class="govuk-radios__input" id="licensed-2" name="licensed" type="radio"
+                                        value="I hold a personal functional licence"
+                                        {{ checked("licensed", "I hold a personal functional licence") }}>
+                                    <label class="govuk-label govuk-radios__label" for="licensed-2">
+                                        I hold a personal functional licence
+                                    </label>
+                                </div>
+                                
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="licensed-2" name="licensed" type="radio"
+                                        value="I do not hold a licence, but work I in the industry"
+                                        {{ checked("licensed", "I do not hold a licence, but I work in the industry") }}>
+                                    <label class="govuk-label govuk-radios__label" for="licensed-2">
+                                        I do not hold a licence, but I work in the industry
+                                    </label>
+                                </div>
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="licensed-3" name="licensed" type="radio"
-                                        value="No"  {{ checked("licensed", "No") }}>
+                                        value="No" {{ checked("licensed", "No") }}>
                                     <label class="govuk-label govuk-radios__label" for="licensed-3">
                                         No
                                     </label>
                                 </div>
-                               
+
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="licensed-3" name="licensed" type="radio"
+                                        value="I am not involved in the gambling industry"
+                                        {{ checked("licensed", "I am not involved in the gambling industry") }}>
+                                    <label class="govuk-label govuk-radios__label" for="licensed-3">
+                                        I am not involved in the gambling industry
+                                    </label>
+                                </div>
+
                         </fieldset>
                     </div>
 
